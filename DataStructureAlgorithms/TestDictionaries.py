@@ -4,6 +4,9 @@ dict1={
     "value":"11"
 }
 
+# Copy dict
+# dict2=dict(dict1)
+# Generate reference
 dict2=dict1
 
 #Se modifica tanto dict1 y dict2 porque apuntan al mismo lugar de memoria
