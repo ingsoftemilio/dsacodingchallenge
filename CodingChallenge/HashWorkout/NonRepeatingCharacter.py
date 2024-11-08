@@ -12,18 +12,21 @@ Output: -1 (All characters repeat)
 
 def nonrepeat_character(my_string):
 
-    # Create dictionary with already processed chars
-    processed_chars_dict={}
+    # Create dictionary with processed chars
+    chars_count_dict={}
+    
+    # For each character count how many times I found the character 
+    for character in my_string:
+        # 0 is the default value that get will return if the character key does not exist in the dictionary
+        chars_count_dict[character] = chars_count_dict.get(character,0)+1
 
+    # Find the first non-repeating character by checking `my_string` order
     for index,character in enumerate(my_string):
-        print(index)
-        print(character)
+        if chars_count_dict[character]==1:
+            return index
 
-    # If none in processed_chars_dict then I couldt find a non repeated value
-    if len(processed_chars_dict)==0:
-        return -1
-    else:
-        return processed_chars_dict
+    # If no non-repeating character is found, return -1
+    return -1
 
-res = nonrepeat_character("swiss")
+res = nonrepeat_character("abcabcde") #→ Expected: 6 ("d", the first unique character)
 print(res)
